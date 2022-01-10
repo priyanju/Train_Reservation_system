@@ -1,0 +1,19 @@
+<section class="login_page">
+  <div class="testing">
+    <div class="container mt-3">
+
+    <h1 class="text">Train Login form</h1>
+      <div class="mb-3 mt-3">
+          <input type="email" class="form-control" [formControl]="user_name" id="email" placeholder="Enter email" name="email"  >
+        </div>
+      
+      <div class="mb-3">
+        <input type="password" class="form-control"  [formControl]="password" id="pwd" placeholder="Enter password" name="pswd">
+      </div>
+    
+      <button type="submit" class="btn" (click)="submit()">Submit</button>
+  </div>
+</div>
+
+
+</section>

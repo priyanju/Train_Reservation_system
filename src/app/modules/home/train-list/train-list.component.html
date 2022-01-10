@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="card" *ngFor="let data of dataSource; let i = index" style="margin-top: 1%;">
+        <div class="card-header">
+            <h5>{{fromStation}} -> {{toStation}}</h5>
+        </div>
+        <div class="card-body">
+            <div class="row w-100 mx-0">
+                <div class="col-md-2">
+                    <h4 class="card-title mb-0">{{data?.trainName}}</h4>
+                    <h5 class="card-subtitle text-muted">{{data?.trainNumber}}</h5>
+                </div>
+                <div class="col-md-1">
+                    <h3 class="mb-0">{{data?.departureTime}} hrs</h3>
+                    <h5 class="text-muted">Departure Time</h5>
+                </div>
+                <div class="col-md-3 text-center">
+                    <p style="color: darkblue;">
+                        <------- {{data?.travelDuration}} ------->
+                    </p>
+                </div>
+                <div class="col-md-1">
+                    <h3 class="mb-0">{{data?.arrivalTime}} hrs</h3>
+                    <h5 class="text-muted">Arrival Time</h5>
+                </div>
+
+            </div>
+            <mat-divider></mat-divider>
+
+            <p class="card-text mt-1">Seat availability</p>
+            <div class="row w-100 mx-0" *ngIf="data?.seats.length !== 0">
+                <div class="card text-center" style="width: 10rem;height: 10rem;margin-left: 20px;"
+                    *ngFor="let class of data?.seats; let i = index;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{class?.name + ' (' + class?.code + ')'}}</h5>
+                        <p class="card-text">{{class?.price | currency:'INR'}}</p>
+                        <h5 class="text-success">{{class?.status + ' - ' + class?.seats}}</h5>
+                        <a class="btn btn-warning" (click)="bookNow(class,data)">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-100 mx-0 text-muted text-center" *ngIf="data?.seats.length === 0">
+                <p>No seats available</p>
+            </div>
+
+        </div>
+    </div>
+</div>

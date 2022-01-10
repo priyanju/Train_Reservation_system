@@ -1,0 +1,44 @@
+<app-nav-bar></app-nav-bar>
+<form [formGroup]="myForm" >
+    <div class="container">
+        <div class="row" style="margin-top: 2% ;">
+            <div class="col-sm">
+                <select class="form-select" id="specificSizeSelect" formControlName="fromStation" required>
+                    <option selected>From</option>
+                    <ng-container *ngFor="let station of stations; let i = index">
+                        <option>{{station?.name + ' (' + station?.code + ')'}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-sm">
+                <select class="form-select" id="specificSizeSelect" formControlName="toStation" required>
+                    <option selected>To</option>
+                    <ng-container *ngFor="let station of stations; let i = index">
+                        <option>{{station?.name + ' (' + station?.code + ')'}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-sm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Travel Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="travelDate" (click)="picker.open()" [min]="minDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary" (click)="submit(myForm)">Search Train</button>
+
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary" [routerLink]="['/user']">Canceled Train List</button>
+            
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<ng-container *ngIf="show === true">
+    <app-train-list [dataSource]="trainList"></app-train-list>
+</ng-container>

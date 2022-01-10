@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row w-100 mx-0">
+        <div class="col-md-10">
+            <h3>Traveler Information</h3>
+        </div>
+        <div class="col-md-2">
+            <button mat-icon-button (click)="onNoClick()" class="float-right">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+    <h4>Adult</h4>
+    <form [formGroup]="adultForm">
+        <div formArrayName="adult" *ngFor="let a of adultForm.get('adult').controls; let i = index">
+            <div [formGroupName]="i" style="margin-bottom: 10px;">
+                <div class="row w-100 mx-0">
+                    <div class="col-sm">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" formControlName="name" class="form-control" required>
+                    </div>
+                    <div class="col-sm">
+                        <label for="pay">Gender:</label>
+                        <input type="text" name="pay" formControlName="gender" class="form-control" required>
+                    </div>
+                    <div class="col-sm">
+                        <label for="age">Age:</label>
+                        <input type="text" name="age" formControlName="age" class="form-control" required>
+                    </div>
+                    <div class="col-sm">
+                        <label for="berth">Berth Preference:</label>
+                        <input type="text" name="berth" formControlName="berth" class="form-control" required>
+                    </div>
+                    <div class="col-sm">
+                        <label for="nationality">Nationality:</label>
+                        <input type="text" name="nationality" formControlName="nationality" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="button" (click)="addAdult()" style="margin-right: 5px;" class="btn btn-primary">Add Adult</button>
+        <!-- <button type="submit">Submit</button> -->
+    </form>
+    <br>
+    <mat-divider></mat-divider>
+    <!-- <h4>Children</h4> -->
+
+    <!-- <div [formGroup]="childrenForm">
+        <div formArrayName="children" *ngFor="let item of childrenForm.get('children').controls; let i = index;">
+            <div [formGroupName]="i" style="margin-bottom: 10px;">
+                <div class="row w-100 mx-0">
+                    <div class="col-sm">
+                        <label for="name">Name:</label>
+                        <input formControlName="name" name="name" class="form-control">
+                    </div>
+                    <div class="col-sm">
+                        <label for="gender">Gender:</label>
+                        <input formControlName="gender" name="gender" class="form-control">
+                    </div>
+                    <div class="col-sm">
+                        <label for="age">Age:</label>
+                        <input formControlName="age" name="age" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <button (click)="addChildren()" class="btn btn-primary">Add Children</button> -->
+    <div class="card" style="margin-top: 10px;">
+        <h3 style="margin-left: 10px;">Price Summary</h3>
+        <div class="table table-borderless">
+            <table>
+                <tr>
+                    <th>Single Passenger Fare</th>
+                    <td class="text-center">{{this.data.selectedClass.price | currency:'INR'}}</td>
+                </tr>
+                <tr>
+                    <th>No. of Adults</th>
+                    <td class="text-center">{{calculateAdult()}}</td>
+                </tr>
+                <!-- <tr>
+                    <th>No. of Children</th>
+                    <td class="text-center">{{calculateChildren()}}</td>
+                </tr> -->
+                <tr>
+                    <th>Tax</th>
+                    <td class="text-center">{{'100'}}</td>
+                </tr>
+                <tr>
+                    <th>Grand Total</th>
+                    <td class="text-center">{{calculate()}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row w-100 mx-0" style="margin-top: 10px;">
+        <button (click)="confirmBooking()" class="btn btn-warning" [disabled]="adultForm.invalid">Continue Booking</button>
+    </div>
+</div>

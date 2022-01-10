@@ -1,0 +1,70 @@
+[
+    {
+        "trainName": "Kovai Express",
+        "trainNumber": "12676",
+        "departureTime": "15:15",
+        "arrivalTime": "23:00",
+        "travelDuration": "07 h 45 m",
+        "seats": [
+            {
+                "name": "Chair Car",
+                "code": "CC",
+                "price": "175",
+                "status": "Available",
+                "seats": "125"
+            },
+            {
+                "name": "Sleeper Class",
+                "code": "SL",
+                "price": "320",
+                "status": "Available",
+                "seats": "75"
+            },
+            {
+                "name": "AC 3 Tier",
+                "code": "3A",
+                "price": "420",
+                "status": "Available",
+                "seats": 25
+            },
+            {
+                "name": "AC 2 Tier",
+                "code": "2A",
+                "price": "600",
+                "status": "Available",
+                "seats": 97
+            },
+            {
+                "name": "First AC",
+                "code": "1A",
+                "price": "800",
+                "status": "Available",
+                "seats": 112
+            }
+        ]
+    },
+    {
+        "trainName": "Cheran Express",
+        "trainNumber": "12674",
+        "departureTime": "22:50",
+        "arrivalTime": "07:00",
+        "travelDuration": "08 h 10 m",
+        "seats": []
+    },
+    {
+        "trainName": "Cbe Jaipur Express",
+        "trainNumber": "12969",
+        "departureTime": "09:25",
+        "arrivalTime": "17:15",
+        "travelDuration": "07 h 50 m",
+        "seats": []
+    },
+    {
+        "trainName": "Maq Mas Express",
+        "trainNumber": "12686",
+        "departureTime": "23:55",
+        "arrivalTime": "08:05",
+        "travelDuration": "08 h 10 m",
+        "seats": []
+    }
+]
